@@ -7,10 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    int tmp, ch;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,16 +61,20 @@ public class MainActivity extends AppCompatActivity {
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("多選一");
-        builder.setSingleChoiceItems(R.array.drinks, -1, new DialogInterface.OnClickListener() {
+        tmp = ch;
+        builder.setSingleChoiceItems(R.array.drinks, tmp, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                tmp = which;
             }
         });
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                String[] str = getResources().getStringArray(R.array.drinks);
+                TextView tv = (TextView) findViewById(R.id.textView);
+                ch = tmp;
+                tv.setText(str[ch]);
             }
         });
         builder.show();
