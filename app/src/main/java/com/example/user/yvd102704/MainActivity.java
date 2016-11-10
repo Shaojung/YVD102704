@@ -149,4 +149,31 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.show();
     }
+
+    public void click6(View v)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("自定");
+
+        builder.setView(R.layout.layout1);
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "按確定", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "按取消", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNeutralButton("略過", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "按略過", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.show();
+    }
 }
